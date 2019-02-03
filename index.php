@@ -8,7 +8,7 @@ $baza = new Baza();
 
 <html>
 <head>
-	<meta charset="ansi">
+	<meta charset="utf-8">
 
 	<link rel="stylesheet" href="plik.css" type="text/css">
 
@@ -22,7 +22,7 @@ $baza = new Baza();
 	<script>
 	require('bootstrap')
 	</script>
-	<title>Poczatki Bootstrap</title>
+	<title>Strona główna</title>
 </head>
 
 
@@ -34,7 +34,7 @@ $baza = new Baza();
 <div class = "container">
   <div class = "row">  
   	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    	<a class="navbar-brand" href="#">Menu</a>
+    	<a class="navbar-brand" href="index.php">Menu</a>
     <!--
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,13 +43,13 @@ $baza = new Baza();
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Wymiany <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">Organizacje</a>
+            <a class="nav-link" href="organizacje.php">Organizacje</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">O stronie</a>
+            <a class="nav-link" href="o_stronie.html">O stronie</a>
           </li>
           <!--
           <li class="nav-item dropdown">
@@ -138,7 +138,7 @@ if ($ilosc>0) {
       $dane2=$zapytanie2->fetch(); {
 
   echo 
-  "<div class='container'>
+  "<div class='container my-4'>
     <div class='row'>
       <div class='col-sm-4 align-self-center'>
         <div class='row justify-content-center'>
@@ -162,49 +162,33 @@ if ($ilosc>0) {
         </div>
 
         <div class='row'>
-          <div class='col-sm-auto'>
-            Rozpoczęcie: 
+          <div class='col-sm-6'>
+            Rozpoczęcie: {$dane['data_roz']}
           </div>
-          <div class='col-sm'>
-            {$dane['data_roz']}
+          
+          <div class='col-sm-6'>
+            Zakończenie: {$dane['data_zak']}
           </div>
-          <div class='col-sm-auto'>
-            Zakończenie: 
-          </div>
-          <div class='col-sm'>
-            {$dane['data_zak']}
-            </div>
         </div>
 
         <div class='row justify-content-end'>
-          <div class='col-sm-auto'>
-            Termin zgłoszenia: 
-          </div>
-          <div class='col-sm-4'>
-            {$dane['data_zgloszenia']}
+          <div class='col-sm-6'>
+            Termin zgłoszenia: {$dane['data_zgloszenia']}
           </div>
         </div>
 
         <div class='row'>
           <div class='col-sm-auto'>
-            Organizacja: 
-          </div>
-          <div class='col-sm-4'>
-            {$dane2['nazwa']}
+            Organizacja: {$dane2['nazwa']}
           </div>
         </div>
 
         <div class='row'>
           <div class='col-sm-auto'>
-            Miejsce: 
-          </div>
-          <div class='col-sm'>
-            {$dane['kraj']}, {$dane['miasto']}
+            Miejsce: {$dane['kraj']}, {$dane['miasto']}
           </div>
         </div>
-        <div class='row'>
-          
-        </div>
+        
         <div class='row'>
           <div class='col-sm'>
             <p>{$dane['opis']}</p>
