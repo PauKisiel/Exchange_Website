@@ -10,6 +10,7 @@ $baza = new Baza();
 	<meta charset="ANSI">
 	
 	<link rel="stylesheet" href="plik.css" type="text/css">
+  <link rel="stylesheet" href="styl.css" type="text/css">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -137,7 +138,7 @@ $baza = new Baza();
 
 <!--zdjecie -->
 
-<div class='container '>
+<!--<div class='container '>
   <div class='row '>
     <div class='col-sm '>
       <img class='img-fluid' src='organizacje_g.png' alt='Zdjęcie'> 
@@ -146,8 +147,16 @@ $baza = new Baza();
         </div>
     </div>      
   </div>
-</div>
+</div>-->
 
+<div class='container '>
+  <div class='row'>
+    <div class='col-sm-12'>
+        <img class='img-fluid' src='org_g.png' alt='Zdj?cie'> 
+        <h2 class="zdj_top">Organizacje</h2>
+    </div>      
+  </div>
+</div>
 
 
 

@@ -9,6 +9,7 @@ $baza = new Baza();
   <meta charset="ANSI">
   
   <link rel="stylesheet" href="plik.css" type="text/css">
+  <link rel="stylesheet" href="styl.css" type="text/css">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -54,7 +55,7 @@ $baza = new Baza();
             <a class="nav-link" href="organizacje.php">Organizacje</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o_stronie.html">O stronie</a>
+            <a class="nav-link" href="o_stronie.php">O stronie</a>
           </li>
           <!--
           <li class="nav-item dropdown">
@@ -138,17 +139,20 @@ $baza = new Baza();
 
 
 <div class = "container">
+  <div class='row'>
+    <div class='col-sm-12'>
+        <img class='img-fluid' src='o_str_g.png' alt='Zdj?cie'> 
+        <h2 class="zdj_top">O stronie</h2>
+    </div>      
+  </div>
   <div class = "row justify-content-center">
-    <div class = "col-lg-9">
-      <h1 class="text-center py-5">O stronie</h1>
-    </div>
     <div class = "row justify-content-center">
-      <div class = "col-lg-9">
+      <div class = "col-sm-9 py-4">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tortor tempus, hendrerit metus at, convallis lorem. Nullam sodales orci consectetur, rhoncus mauris eget, faucibus urna. Etiam ut convallis mauris, ut porta felis. Maecenas elit felis, interdum eu efficitur eget, accumsan in arcu. Aenean hendrerit quam vitae orci tincidunt tempus. Sed quis lobortis justo. In lacinia sem a aliquam egestas. Duis facilisis sapien non tellus blandit tempor. Integer pellentesque eros nec arcu volutpat molestie. Donec non odio a risus mollis malesuada eu non velit. Praesent at libero ante. Maecenas a diam augue.</p>
       </div>
     </div>
     <div class="row justify-content-center ">
-      <div class = "col-lg-9">
+      <div class = "col-sm-10">
         <img src="https://cdn.pixabay.com/photo/2014/04/03/11/51/circle-312343_960_720.png" class="img-fluid">
       </div>
     </div>

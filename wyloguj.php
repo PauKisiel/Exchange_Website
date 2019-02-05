@@ -10,8 +10,8 @@
     unset($_SESSION['mail']);
     unset($_SESSION['mail']);
 
-	echo 'Wylogowanie przebiegło prawidłowo<br/>'; 
+	header("Location: index.php");
+    exit;
 
 
 ?>
-<a href="./index.php">Powrót do strony głównej</a> 

@@ -48,13 +48,13 @@ $baza = new Baza();
       <div class="collapse navbar-collapse" id="podstrony">
         <ul class="navbar-nav mr-auto ">
           <li class="nav-item">
-            <a class="nav-link" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
+            <a class="nav-link active" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="organizacje.php">Organizacje</a>
+            <a class="nav-link active" href="organizacje.php">Organizacje</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o_stronie.php">O stronie</a>
+            <a class="nav-link active" href="o_stronie.php">O stronie</a>
           </li>
           <!--
           <li class="nav-item dropdown">
@@ -110,18 +110,18 @@ $baza = new Baza();
         </a>
         <div class="collapse navbar-collapse" id="podstrony">
           <ul class="navbar-nav mr-auto ">
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="wymiany.php">Wymiany</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="organizacje.php">Organizacje</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="o_stronie.php">O stronie</a>
             </li>
           </ul>
           <ul class="navbar-nav mr-end">
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="moje_wymiany.php">Moje wymiany</a>
             </li>
           </ul>
