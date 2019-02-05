@@ -1,6 +1,12 @@
+<?php
+session_start();
+
+require_once('./baza.php');
+$baza = new Baza();
+?>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="ANSI">
   
   <link rel="stylesheet" href="plik.css" type="text/css">
 
@@ -20,24 +26,34 @@
 
 
 <body>
-	<div class = "container">
+	
+
+<?php
+    if (!isset($_SESSION['zalogowany'])) { 
+?>
+
+<div class = "container">
   <div class = "row">  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.php">Menu</a>
+    <div class="col-sm-12">
+  	<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    	<!--<a class="navbar-brand" href="index.php">Główna</a>-->
+      <a class="navbar-brand" href="index.php">
+        <img src="dom_ikona.png" width="30" height="30" alt="">
+      </a>
     <!--
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>/-->
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
+      <div class="collapse navbar-collapse" id="podstrony">
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item">
+            <a class="nav-link" href="wymiany.php">Wymiany</a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href="organizacje.php">Organizacje</a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href="o_stronie.html">O stronie</a>
           </li>
           <!--
@@ -55,20 +71,70 @@
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>-->
+          </ul>
+            <form class="form-inline my-2 my-lg-0" action='logowanie.php' method='POST'>
+            	<!--
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+              <input class="form-control mr-sm-2" name="mail" type="text" display:"inline-block" placeholder="E-mail" aria-label="E-mail" requirde>
+              <input class="form-control mr-sm-2" name="haslo" type="password" placeholder="Hasło" aria-label="Hasło" required>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button> 
+            </form>
+        <ul class="navbar-nav mb-1">
+          <li class="nav-item px-2">
+            <a href="rejestracja.html" class"mx=2">Nie masz konta? Zarejestruj się!</a>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <!--
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-          <input class="form-control mr-sm-2" type="text" display:"inline-block" placeholder="e-mail" aria-label="E-mail">
-          <input class="form-control mr-sm-2" type="password" placeholder="hasło" aria-label="Hasło">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button> 
-        </form>
-      </div>
-      <a href="rejestracja.html">Nie masz konta? Zarejestruj się!</a>
+    	</div>    
     </nav>
   </div>
-</div> 
+</div>
+</div>
+<?php
+}
+?>
+
+
+<!-- pasek dla zalogowanych--> 
+<?php
+    if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) { 
+?>
+
+<!--&& $_SESSION['uprwanienia']==1)--> 
+<div class = "container">
+  <div class = "row">  
+    <div class="col-sm-12">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" href="index.php">
+          <img src="dom_ikona.png" width="30" height="30" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="podstrony">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item ">
+              <a class="nav-link" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="organizacje.php">Organizacje</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="o_stronie.php">O stronie</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-end">
+            <li class="nav-item">
+              <a class="nav-link" href="moje_wymiany.php">Moje wymiany</a>
+            </li>
+          </ul>
+        <a href='wyloguj.php' class='btn btn-outline-success my-2 my-sm-0 mx-2' role='button'>
+          Wyloguj
+        </a>
+      </nav>
+    </div>
+<?php
+  }
+?>
+
+
 
 
 <div class = "container">

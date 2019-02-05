@@ -66,8 +66,57 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-9">
-	<a href="rejestracja_uzy.html" class="btn btn-primary btn-lg btn-block" role="button">Rejestracja U¿ytkownika</a>
-	<a href="rejestracja_org.html" class="btn btn-secondary btn-lg btn-block" role="button">Rejestracja Organizacji</a>	   
+      <form action="rejestracja_uzy.php" method="POST">
+        <div class="form-group">
+          <label for="name">Nazwisko i imiê</label>
+          <input type="text" class="form-control"  name="nazwisko" placeholder="Podaj nazwisko">
+	        <input type="text" class="form-control"  name="imie" placeholder="Podaj imiê">
+        </div>
+        <div class="form-group">
+  	      <script>
+          $(document).ready(function(){
+          var date_input=$('input[name="date"]'); //our date input has the name "date"
+          var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+          var options={
+          format: 'dd/mm/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+          };
+          date_input.datepicker(options);
+          })
+  	      </script>
+          <label class="control-label" for="data">Data Urodzenia</label>
+          <input class="form-control" name="data_ur" placeholder="Podaj datê urodzenia" type="date"/>
+        </div>				
+	      <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="e_mail" aria-describedby="emailHelp" placeholder="Podaj email">
+          <small id="emailHelp" class="form-text text-muted">Twój Email bêdzie s³u¿y³ jako login</small>
+	      </div>
+        <div class="form-group">
+          <label for="haslo">Has³o</label>
+          <input type="password" class="form-control"  name="haslo" placeholder="Podaj has³o">
+        </div>
+        <div class="form-group">
+          <label for="telefon">Numer telefonu</label>
+          <input type="text" class="form-control"  name="telefon" placeholder="Podaj numer telefonu">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="plec" value="m">
+          <label class="form-check-label" for="exampleRadios1">
+            Mê¿czyzna
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="plec" value="k">
+          <label class="form-check-label" for="exampleRadios2">
+            Kobieta
+          </label>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary">Zarejestruj siê!</button>
+      </form>
     </div>
     <div class="col">
     </div>

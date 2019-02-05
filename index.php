@@ -8,7 +8,7 @@ $baza = new Baza();
 
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="ANSI">
 
 	<link rel="stylesheet" href="plik.css" type="text/css">
 
@@ -47,14 +47,14 @@ $baza = new Baza();
 
       <div class="collapse navbar-collapse" id="podstrony">
         <ul class="navbar-nav mr-auto ">
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="organizacje.php">Organizacje</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="o_stronie.html">O stronie</a>
+          <li class="nav-item">
+            <a class="nav-link" href="o_stronie.php">O stronie</a>
           </li>
           <!--
           <li class="nav-item dropdown">
@@ -110,19 +110,19 @@ $baza = new Baza();
         </a>
         <div class="collapse navbar-collapse" id="podstrony">
           <ul class="navbar-nav mr-auto ">
-            <li class="nav-item ">
-              <a class="nav-link" href="wymiany.php">Wymiany <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="wymiany.php">Wymiany</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="organizacje.php">Organizacje</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="o_stronie.html">O stronie</a>
+            <li class="nav-item">
+              <a class="nav-link" href="o_stronie.php">O stronie</a>
             </li>
           </ul>
           <ul class="navbar-nav mr-end">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Moje wymiany</a>
+            <li class="nav-item">
+              <a class="nav-link" href="moje_wymiany.php">Moje wymiany</a>
             </li>
           </ul>
         <a href='wyloguj.php' class='btn btn-outline-success my-2 my-sm-0 mx-2' role='button'>
@@ -253,20 +253,6 @@ if ($ilosc>0) {
         </div>
       </div>
     </div>";
-
-    if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) { 
-
-   echo"
-    <div class='row justify-content-end'>
-      <div class='col-sm-5'>
-        <a href='zapis_na_wymiane.php' class='btn btn-success' role='button'>
-          Zgloś się na wymianę!
-        </a>
-      </div>
-    </div>
-  </div>
-</div>";
-}
 }
 }
 }
