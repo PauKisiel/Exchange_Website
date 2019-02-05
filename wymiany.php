@@ -15,19 +15,21 @@ $baza = new Baza();
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
   
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  <!-- ten np byÅ‚ potrzebny do przewijania slajdÃ³w --> 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  <!-- ten np by³ potrzebny do przewijania slajdów --> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script>
   require('bootstrap')
   </script>
 
-	<title>Organizacje</title>
+	<title>Wymiany</title>
 </head>
 
 
 
 <body>
+
+
 <?php
     if (!isset($_SESSION['zalogowany'])) { 
 ?>
@@ -36,7 +38,7 @@ $baza = new Baza();
   <div class = "row">  
     <div class="col-sm-12">
   	<nav class="navbar navbar-expand-sm navbar-light bg-light">
-    	<!--<a class="navbar-brand" href="index.php">GÅ‚Ã³wna</a>-->
+    	<!--<a class="navbar-brand" href="index.php">G³ówna</a>-->
       <a class="navbar-brand" href="index.php">
         <img src="dom_ikona.png" width="30" height="30" alt="">
       </a>
@@ -54,7 +56,7 @@ $baza = new Baza();
             <a class="nav-link" href="organizacje.php">Organizacje</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="o_stronie.php">O stronie</a>
+            <a class="nav-link" href="o_stronie.html">O stronie</a>
           </li>
           <!--
           <li class="nav-item dropdown">
@@ -77,12 +79,12 @@ $baza = new Baza();
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
               <input class="form-control mr-sm-2" name="mail" type="text" display:"inline-block" placeholder="E-mail" aria-label="E-mail" requirde>
-              <input class="form-control mr-sm-2" name="haslo" type="password" placeholder="HasÅ‚o" aria-label="HasÅ‚o" required>
+              <input class="form-control mr-sm-2" name="haslo" type="password" placeholder="Has³o" aria-label="Has³o" required>
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button> 
             </form>
         <ul class="navbar-nav mb-1">
           <li class="nav-item px-2">
-            <a href="rejestracja.html" class"mx=2">Nie masz konta? Zarejestruj siÄ™!</a>
+            <a href="rejestracja.html" class"mx=2">Nie masz konta? Zarejestruj siê!</a>
           </li>
         </ul>
     	</div>    
@@ -140,9 +142,9 @@ $baza = new Baza();
 <div class='container '>
   <div class='row '>
     <div class='col-sm '>
-      <img class='img-fluid' src='organizacje_g.png' alt='ZdjÄ™cie'> 
+      <img class='img-fluid' src='wymiany_g.png' alt='Zdjêcie'> 
         <div class=" col-sm-12  carousel-caption">
-          <h1>Organizacje</h1>
+          <h1 style="color:black">Wymiany</h1>
         </div>
     </div>      
   </div>
@@ -151,58 +153,106 @@ $baza = new Baza();
 
 
 
-<!-- LISTA ORGANIZACJI - 
-      spr czy aktywna -->
+
+
+<!-- lista wymian do przegl¹dania --> 
+<!--wymiana-organizacja -->
 <?php
-  $sql='select * from organizacje';
+  $sql='select * from wymiana';
     $zapytanie=$baza->klient->query($sql);
  
     $ilosc=$zapytanie->rowCount();
 
+    $sql_org='select nazwa from wymiana w join organizacje o on w.id_organizacji = o.id_organizacji where w.id_organizacji = o.id_organizacji';
+    $zapytanie2=$baza->klient->query($sql_org);
+	
+	$sql='select id_wymiany from wymiana LIMIT 1';
+    $zapytanie3=$baza->klient->query($sql);
+	$id=$zapytanie3->fetch();
+	$id_wymiany=$id[0];
+	
+
 
 if ($ilosc>0) {
     while ($dane=$zapytanie->fetch()){
+      $dane2=$zapytanie2->fetch(); {
+  echo 
+  "<div class='container my-4'>
+    <div class='row'>
 
-echo"
-<div class='container py-4'>
-  <div class='row align-items-center'>
-    <div class='col-sm-2'>
-      <img class='d-block w-100' src='{$dane['logo']}' alt='ZdjÄ™cie wymiany'>
-    </div>
-    <div class='col-sm-10'>
-      <div class='row'>
-        <div class='col-sm-6'>
-          <h2>{$dane['nazwa']}</h2>
+      <div class='col-sm-4 align-self-center'>
+        <div class='row justify-content-center'>
+          <div class='col-sm-10'>
+            <img class='d-block w-100' src='{$dane['plik']}' alt='Zdjêcie wymiany'>
+          </div>
         </div>
       </div>
-      <div class='row'>
-        <div class='col-sm-6'>
-          <h3>{$dane['kraj']}</h3>
+
+      <div class='col-sm-8'>
+        <div class='row' id='tytul'>
+          <div class='col-sm'>
+            <h3>{$dane['tytul']}</h3>
+          </div>
         </div>
+
+        <div class='row'>
+          <div class='col-sm'>
+            <h4>{$dane['tematyka']}</h4>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-sm-6'>
+            Rozpoczêcie: {$dane['data_roz']}
+          </div>
+          
+          <div class='col-sm-6'>
+            Zakoñczenie: {$dane['data_zak']}
+          </div>
+        </div>
+
+        <div class='row justify-content-end'>
+          <div class='col-sm-6'>
+            Termin zg³oszenia: {$dane['data_zgloszenia']}
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-sm-auto'>
+            Organizacja: {$dane2['nazwa']}
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-sm-auto'>
+            Miejsce: {$dane['kraj']}, {$dane['miasto']}
+          </div>
+        </div>
+        
+        <div class='row'>
+          <div class='col-sm'>
+            <p>{$dane['opis']}</p>
+          </div>
+        </div>
+      </div>
+    </div>";
+
+    if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) { 
+
+echo $id_wymiany; 	
+   echo"
+    <div class='row justify-content-end'>
+      <div class='col-sm-5'>
+	  <a href='zapis_na_wymiane.php' class='btn btn-success' role='button'>
+          Zgloœ siê na wymianê!
+        </a>	   
       </div>
     </div>
   </div>
-  <div class='row'>
-    <div class='col-sm'>
-      <p>{$dane['opis']}</p>
-    </div>
-  </div>
-  <div class='row justify-content-center'>
-    <div class='col-sm-auto'>
-      <h4>Kontakt:</h4>
-    </div>
-  </div>
-  <div class='row justify-content-center'>
-    <div class='col-sm-auto'>
-      Telefon: {$dane['telefon']}
-    </div>
-  </div>
-  <div class='row justify-content-center'>
-    <div class='col-sm-auto'>
-      E-mail: {$dane['e_mail']}
-    </div>
-  </div>  
 </div>";
+}
+$id_wymiany++;
+}
 }
 }
 ?>
