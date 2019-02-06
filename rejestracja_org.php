@@ -1,3 +1,25 @@
+<html>
+<head>
+	<meta charset="ANSI">
+
+	<link rel="stylesheet" href="plik.css" type="text/css">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  <!-- ten np by≈Ç potrzebny do przewijania slajd√≥w --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script>
+	require('bootstrap')
+	</script>
+	<title>Strona g≈Ç√≥wna</title>
+</head>
+
+
+<body>
+
 <?php
 include './bazamysqli.php';
 if(isset($_POST['nazwa']))
@@ -13,7 +35,7 @@ if(isset($_POST['haslo'])){
 if(isset($_POST['opis'])){
 	$Opis=$_POST['opis'];
 
-	if(!empty($Nazwa) && !empty($Kraj) && !empty($Email) && !empty($Telefon) && !empty($Haslo) && !empty($Opis)){ // podwÛjne zabezpieczenie przed b≥Ídem
+	if(!empty($Nazwa) && !empty($Kraj) && !empty($Email) && !empty($Telefon) && !empty($Haslo) && !empty($Opis)){ // podw√≥jne zabezpieczenie przed b¬≥√™dem
 
 		$host = "localhost";
 		$db_user = "root";
@@ -44,10 +66,23 @@ if(isset($_POST['opis'])){
 				$stmt->bind_param("ssssssi",$Nazwa,$Kraj,$Email,$Telefon,$Opis, $Haslo,$Czy_aktywna);
 				$stmt->execute();
 				
-				echo "Rejestracja przebieg≥a pomyúlnie!";
-				echo "<a href='index.php'>WrÛÊ do ekranu logowania</a>";
-			} else{
-				echo "Ktoú siÍ juø zarejestrowa≥ korzystajπc z tego loginu";
+			echo"<div class='container'>
+    				<div class='row h-50 justify-content-center align-items-center'>
+      					<div class='col-sm-8'>
+      						<h4 style='text-align:center'>Rejestracja przebieg≈Ça pomy≈õlnie</h4>
+        					<a href='index.php' class='btn btn-info btn-lg btn-block' role='button'>Przejd≈∫ do logowania</a>
+      					</div>
+      				</div>		
+    			</div>";
+			} else {
+			echo"<div class='container'>
+    				<div class='row h-50 justify-content-center align-items-center'>
+      					<div class='col-sm-8'>
+      						<h4 style='text-align:center'>Podany przez ciebie login zosta≈Ç ju≈º u≈ºyty</h4>
+        					<a href='index.php' class='btn btn-info btn-lg btn-block' role='button'>Wype≈Çnij formularz ponownie</a>
+      					</div>
+      				</div>		
+    			</div>";
 				
 			}
 			$stmt->close();
@@ -55,13 +90,18 @@ if(isset($_POST['opis'])){
 		}
 			 
 		}else {			
-			echo "Wype≥nij wszystkie pola!";			
+			echo "<div class='container '>
+    				<div class='row h-50 justify-content-center align-items-center'>
+      					<div class='col-sm-8'>
+      						<h3 style='text-align:center'> Wype≈Çnij wszystkie pola formularza!</h3>
+        					<a href='rejestracja_org.html' class='btn btn-info btn-lg btn-block' role='button'>Powr√≥t do formularza</a>
+        					<a href='index.php' class='btn btn-info btn-lg btn-block' role='button'>Powr√≥t do strony g≈Çownej</a>
+      					</div>
+      				</div>		
+    			</div>";			
 		}
-
 }
-	
-
-
-
-
-}
+} 
+?>
+</body>
+</html>

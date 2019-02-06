@@ -1,12 +1,12 @@
 
 <html>
 <head>
-	<meta charset="ANSI">
+	<meta charset="utf-8">
 	
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
-	<!-- link nie wiem do czego ;PP -->
+	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -56,21 +56,27 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       <input class="form-control mr-sm-2" type="text" display:"inline-block" placeholder="e-mail" aria-label="E-mail">
-      <input class="form-control mr-sm-2" type="password" placeholder="has³o" aria-label="Has³o">
+      <input class="form-control mr-sm-2" type="password" placeholder="hasÂ³o" aria-label="HasÂ³o">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button> 
     </form>
   </div>
 </nav>
 
 <article>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9">
+<div class="container my-4">
+  <div class="row justify-content-center mb-4">
+    <div class="col-sm-8">
+      <h4 class="">Zarejestruj sie!</h4>
+      <h6>Rejestracja uÅ¼ytkownika</h6>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
       <form action="rejestracja_uzy.php" method="POST">
         <div class="form-group">
-          <label for="name">Nazwisko i imiê</label>
-          <input type="text" class="form-control"  name="nazwisko" placeholder="Podaj nazwisko">
-	        <input type="text" class="form-control"  name="imie" placeholder="Podaj imiê">
+          <label for="name">Nazwisko i imiÃª</label>
+          <input type="text" class="form-control mb-1"  name="nazwisko" placeholder="Podaj nazwisko">
+	        <input type="text" class="form-control"  name="imie" placeholder="Podaj imiÃª">
         </div>
         <div class="form-group">
   	      <script>
@@ -87,16 +93,16 @@
           })
   	      </script>
           <label class="control-label" for="data">Data Urodzenia</label>
-          <input class="form-control" name="data_ur" placeholder="Podaj datê urodzenia" type="date"/>
+          <input class="form-control" name="data_ur" placeholder="Podaj datÃª urodzenia" type="date"/>
         </div>				
 	      <div class="form-group">
           <label for="email">Email</label>
           <input type="email" class="form-control" name="e_mail" aria-describedby="emailHelp" placeholder="Podaj email">
-          <small id="emailHelp" class="form-text text-muted">Twój Email bêdzie s³u¿y³ jako login</small>
+          <small id="emailHelp" class="form-text text-muted">TwÃ³j Email bÃªdzie sÂ³uÂ¿yÂ³ jako login</small>
 	      </div>
         <div class="form-group">
-          <label for="haslo">Has³o</label>
-          <input type="password" class="form-control"  name="haslo" placeholder="Podaj has³o">
+          <label for="haslo">HasÂ³o</label>
+          <input type="password" class="form-control"  name="haslo" placeholder="Podaj hasÂ³o">
         </div>
         <div class="form-group">
           <label for="telefon">Numer telefonu</label>
@@ -105,7 +111,7 @@
         <div class="form-check">
           <input class="form-check-input" type="radio" name="plec" value="m">
           <label class="form-check-label" for="exampleRadios1">
-            Mê¿czyzna
+            MÃªÂ¿czyzna
           </label>
         </div>
         <div class="form-check">
@@ -115,10 +121,8 @@
           </label>
         </div>
         <br/>
-        <button type="submit" class="btn btn-primary">Zarejestruj siê!</button>
+        <button type="submit" class="btn btn-success">Zarejestruj siÃª!</button>
       </form>
-    </div>
-    <div class="col">
     </div>
   </div>
 </div>
